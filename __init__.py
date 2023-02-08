@@ -9,8 +9,9 @@ class Nltkprova(MycroftSkill):
 
     @intent_file_handler('nltkprova.intent')
     def handle_nltkprova(self, message):
-        py_txt = word_tokenize (message)
-        self.speak(print(nltk.pos_tag(py_txt)))
+        text = message.data.get('utterance')
+        tokenized_text = word_tokenize (text)
+        self.speak(print(nltk.pos_tag(tokenized_text)))
 
 
 def create_skill():
